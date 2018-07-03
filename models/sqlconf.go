@@ -6,4 +6,5 @@ type SqlConf struct {
 	SqlUser string
 	SqlPassword string
 	SqlHost string
+	SqlPort string
 }
