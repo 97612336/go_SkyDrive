@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"go_SkyDrive/util"
 	"go_SkyDrive/models"
+	"log"
 )
 
 func Add_adver(w http.ResponseWriter, r *http.Request) {
@@ -47,4 +48,8 @@ func Add_adver(w http.ResponseWriter, r *http.Request) {
 		fmt.Println(name)
 	}
 
+}
+
+func Add(w http.ResponseWriter, r *http.Request)  {
+	log.Println("这是为什么呢?")
 }

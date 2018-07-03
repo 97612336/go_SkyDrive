@@ -25,7 +25,6 @@ func Get_sql_db() *sql.DB {
 	data, _ := ioutil.ReadFile(config_file)
 	//转化为字符串格式
 	str_data := string(data)
-	log.Println(str_data)
 	//实例化数据库配置类型
 	var sqlconf models.SqlConf
 	//得到json字符串数据
