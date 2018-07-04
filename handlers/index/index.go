@@ -75,7 +75,6 @@ func Upload_file(w http.ResponseWriter, r *http.Request) {
 	defer file.Close()
 	//创建写入到本地的文件
 	file_path_and_name := config.Static_Path + header.Filename
-	log.Println(file)
 	f, err := os.Create(file_path_and_name)
 	if err!=nil{
 		log.Println("创建本地文件的时候出错")
