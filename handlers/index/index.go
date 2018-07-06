@@ -65,6 +65,7 @@ func Add_file(w http.ResponseWriter, r *http.Request) {
 //具体的添加文件的操作
 func Upload_file(w http.ResponseWriter, r *http.Request) {
 	r.ParseForm()
+	var err error
 	//获取表单文件
 	file, header, err:= r.FormFile("file")
 	if err!=nil{
