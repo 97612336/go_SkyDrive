@@ -1,30 +1,29 @@
 package main
 
 import (
-	"net/http"
-	"log"
-	handlers "go_SkyDrive/handlers"
+	"flag"
+	"fmt"
 	_ "github.com/go-sql-driver/mysql"
+	"go_SkyDrive/handlers"
 	"go_SkyDrive/util"
+	"net/http"
 )
 
-func init(){
-	util.DB=util.Get_sql_db()
+func init() {
+	util.DB = util.Get_sql_db()
 }
 
-
-
-func main(){
-	defer util.DB.Close()
-
-	var err error
+func main() {
 	//设置路由
 	handlers.MyUrls()
+	//设置端口号
+	var port string
+	flag.StringVar(&port, "port", "8081", "listen port")
+	flag.Parse()
+	fmt.Println(port)
 	//设置监听端口
-	err = http.ListenAndServe(":8080",nil)
+	err := http.ListenAndServe(":"+port, nil)
 	//启动程序
-	if err !=nil{
-		log.Fatal("出现错误：",err)
-	}
-	
+	util.CheckErr(err)
+
 }
